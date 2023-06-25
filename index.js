@@ -3,6 +3,7 @@ const cookiesParser = require('cookie-parser')
 const session = require('express-session')
 const GrossryRouter = require('./routes/grossriesRouter.js');
 const MarketRouter = require('./routes/marketRouter.js');
+const Auth = require('./routes/auth');
 
 const app = new express();
 
@@ -21,3 +22,4 @@ app.listen(3000, () => {
 
 app.use('/grossry',GrossryRouter);
 app.use('/market',MarketRouter);
+app.use(Auth);
