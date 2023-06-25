@@ -1,10 +1,18 @@
 const express = require('express');
+const cookiesParser = require('cookie-parser')
+const session = require('express-session')
 const GrossryRouter = require('./routes/grossriesRouter.js');
 const MarketRouter = require('./routes/marketRouter.js');
 
 const app = new express();
 
 app.use(express.json());
+app.use(cookiesParser());
+app.use(session({
+    secret: "ASLKJFLDKJFDSLKFJDLFSKJFLSF",
+    resave: false,
+    saveUninitialized: false
+}));
 
 
 app.listen(3000, () => {

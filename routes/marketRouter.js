@@ -27,12 +27,12 @@ const stores = [
 
 
 router.get('/', (req, res) =>{
+    
     const {miles} = req.query;
     console.log(miles);
     const milesParse = parseInt(miles);
     console.log('out of if ', miles);
     if(miles && !isNaN(milesParse)){
-        //Currently This is not functioning well comparison is not working
         const result = stores.filter(d => d.miles <= milesParse)
         console.log('This is  the Result:', result);
         res.send(result)
